@@ -2,7 +2,24 @@
     "name": "Stepshot",
     "version": "0.1",
     "description": "Take screenshots quickly",
-    "manifest_version": 2,
+    "manifest_version": 3,
+    "action":{
+        "default_title": "Stepshot - take screenshots quickly"
+    },
+    "background": {
+        "service_worker": "assets/js/background.js"
+    },
+    "permissions": [
+        "desktopCapture",
+        "downloads",
+        "tabs"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": "assets/js/background.js"
+        }
+    ],
     "icons": {
         "16": "assets/images/icon16.png",
         "32": "assets/images/icon32.png",
